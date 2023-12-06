@@ -7,19 +7,13 @@ int main()
     Magician Harry;
     Swordsman Zoro;
 
-    Harry.Small_Magic_Spell(Zoro);
-    Harry.Small_Magic_Spell(Zoro);
-    Harry.Small_Magic_Spell(Zoro);
-    Harry.Small_Magic_Spell(Zoro);
-    Harry.Small_Magic_Spell(Zoro);
-    Harry.Small_Magic_Spell(Zoro); //тест на работу убийства персонажа
-    Harry.Small_Magic_Spell(Zoro);
-    Harry.Small_Magic_Spell(Zoro);
-    Harry.Small_Magic_Spell(Zoro);
-    Harry.Small_Magic_Spell(Zoro);
+    
 
-    Zoro.Swordsman_Output();
+    Character* Man = &Harry;
+    ((Swordsman*)Man)->Sword_Hit(Zoro);
+    dynamic_cast<Magician*>(Man)->Small_Magic_Spell(Zoro); 
+    static_cast<Magician*>(Man)->Small_Magic_Spell(Zoro);
 
-
+    Zoro.Output();
 }
 

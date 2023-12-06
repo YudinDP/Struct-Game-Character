@@ -25,13 +25,13 @@ class Character{
 		//геттер MP
 		int Get_MP();
 
-		//ѕрибавл€ет к HP значение change
+		//ѕрибавл€ет к HP значение change(не может быть < 0 и > 100)
 		void Add_HP(int change);
 
-		//ѕрибавл€ет к SP значение change
+		//ѕрибавл€ет к SP значение change(не может быть < 0 и > 100)
 		void Add_SP(int change);
 
-		//ѕрибавл€ет к MP значение change
+		//ѕрибавл€ет к MP значение change(не может быть < 0 и > 100)
 		void Add_MP(int change);
 
 		//выпить зелье здоровь€ - увеличивает поле HP на 15
@@ -43,8 +43,8 @@ class Character{
 		//выпить зелье маны - увеличивает поле MP на 20
 		void Drink_Mana_Potion();
 
-		//вывод полей класса Character
-		void Character_Output();
+		//полиморфный вывод полей класса Character, применим к наследуемым классам
+		virtual void Output() const;
 
 		//обычный удар. ¬озвращаемое значение - наносимый урон(то же свойство сохран€етс€ дл€ других методов св€занных с нанисением урона)
 		void Default_Punch(Character &Enemy);
@@ -66,7 +66,7 @@ class Magician : public Character{
 		Magician();
 
 		//вывод полей класса Character
-		void Magician_Output();
+		void Output() const override;
 
 		//маленькое заклинание
 		void Small_Magic_Spell(Character &Enemy);
@@ -85,9 +85,9 @@ class Swordsman : public Character {
 		Swordsman();
 
 		//вывод полей класса ћечник
-		void Swordsman_Output();
+		void Output() const override;
 
-		//удар мечем
+		//удар мечем по передаваемому объекту класса персонажа
 		void Sword_Hit(Character& Enemy);
 
 };

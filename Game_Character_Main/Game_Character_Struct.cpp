@@ -8,6 +8,7 @@ Character::Character() {
 }
 
 //деструктор(не нужен в данном случае тк отсутствует new и память отчищать не от чего)
+//поэтому сделан для галочки
 Character::~Character() {
 	//delete HP, SP, MP;
 }
@@ -41,7 +42,6 @@ void Character::Add_HP(int change) {
 	HP = HP + change;
 
 	if (HP <= 0) {  //проверка на хп < 0
-		cout << "Enemy died" << endl;
 		HP = 0;
 	}
 }
@@ -97,8 +97,8 @@ void Character::Drink_Mana_Potion() {
 	Add_MP(20);
 }
 
-//вывод полей класса Character
-void Character::Character_Output() {
+//вывод полей класса Character(не меняет полей, поэтому константный метод)
+ void Character::Output() const{
 	cout << endl;
 	cout << "     Character:  " << endl;
 	cout << "     HP:  " << HP << endl;
@@ -126,7 +126,7 @@ Magician::Magician() {
 }
 
 //вывод полей класса Magician
-void Magician::Magician_Output() {
+void Magician::Output() const  {
 	cout << endl;
 	cout << "     Magician:  " << endl;
 	cout << "     HP:  " << HP << endl;
@@ -155,7 +155,7 @@ Swordsman::Swordsman() {
 };
 
 //вывод полей класса Мечник
-void Swordsman::Swordsman_Output() {
+void Swordsman::Output() const {
 	cout << endl;
 	cout << "     Swordsman:  " << endl;
 	cout << "     HP:  " << HP << endl;
